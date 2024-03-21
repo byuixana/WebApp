@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Playthink</title>
+    <link rel="stylesheet" type="text/css" href="/playthink.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Playthink</h1>
+        <nav>
+            <ul>
+                <li id="projects"><a href="#">Projects</a></li>
+                <li id="challenges"><a href="/challenges.html">Challenges</a></li>
+            </ul>
+        </nav> 
+    </header>
+    
+    <main>
+        <form action="/playthink" method="POST">
+            <input type="text" name="projectName" id="projectName" placeholder="Project Name">
+            <input type="text" name="projectType" id="projectType" placeholder="Project Type">
+            <button id="create-project">Create Project</button>
+        </form>
+        <div id="project-space">
+           
+        </div>
+    </main>
+    <script src="index_frontend.js"></script>
+</body>
+</html>

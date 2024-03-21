@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="playthink.css">
+</head>
+<body>
+    
+    <div id="login-container">
+        <h3>Sign In</h3>
+        <form action="/userLogin" method="post">
+        <input type="text" id="email" name="email" placeholder="Enter email">
+        <input type="text" id="password" name="password" placeholder="Enter password">
+        <div id="buttons">
+            <button id="sign-in" type="submit">Sign In</button>
+        </div>  
+        </form>
+
+        <button id="create_accnt" type="submit">Create account?</button>
+        
+    </div>
+    <script src="user_login.js"></script>
+</body>
+</html>
