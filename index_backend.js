@@ -3,37 +3,24 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({extended:false}));
+
+app.use(express.static('public'));
+
+app.use(express.static('js'))
 
 //Set up the host and port
 const host = '127.0.0.1';
 const PORT = 3001;
 
-//Give the CSS to the page. Static files are what provide structure rather than function, so CSS files are static.
-app.use(express.static('public', {
-    setHeaders: (res, path, stat) => {
-        if (path.endsWith('.css')) {
-            res.setHeader('Content-Type', 'text/css')
-        }
-    }
-}));
-
-//How to use frontend js with backend
-
-app.use(express.static('public', {
-    setHeaders: (res, path, stat) => {
-        if (path.endsWith('.js')) {
-            res.set('Content-Type', 'text/javascript');
-        }
-    }
-}));
-
-
 //Takes users right to the index.
 app.get('/playthink', (req, res) => {
     res.sendFile(__dirname + '/index.html')
+    let name = req.body.projectName;
+    let type = req.body.projectType;
+    // res.send(name, type);
 })
 
 
@@ -50,7 +37,9 @@ app.get('/challenges', (req, res) => {
 app.post('/playthink', (req, res) => {
     let name = req.body.projectName;
     let type = req.body.projectType;
-    res.sendFile(__dirname + '/challenges.html');
+    res.sendFile(__dirname + '/index.html');
+    // res.render()
+
 })
 
 app.listen(PORT, host, () => {
